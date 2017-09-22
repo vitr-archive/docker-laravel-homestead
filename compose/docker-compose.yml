@@ -1,0 +1,28 @@
+version: '2'
+services:
+  app:
+    image: vitr/laravel-homestead
+    restart: always
+    environment:
+        - VIRTUAL_HOST=homestead.local
+#    ports:
+     # - "80:80"
+#        - "3306:3306"
+    expose:
+        - "80"
+    volumes:
+#        - ~/.composer:/home/homestead/.composer # composer caching
+#        - ~/.gitconfig:/home/homestead/.gitconfig # Git configuration ( access alias && config )
+#        - ~/.ssh:/home/homestead/.ssh # Ssh keys for easy deployment inside the container
+        - ./shared:/home/vagrant/apps # all apps
+#        - ./apps/volumes/nginx/sites-available:/etc/nginx/sites-available # nginx sites ( in case you recreate the container )
+#        - ./apps/volumes/nginx/sites-enabled:/etc/nginx/sites-enabled # nginx sites ( in case you recreate the container )
+    networks:
+        - nginx-proxy
+# networks:
+#   my-network:
+#     driver: "bridge"
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy
