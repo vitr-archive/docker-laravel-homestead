@@ -240,7 +240,7 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
 apt-get install apt-transport-https
 #curl --silent --location https://deb.nodesource.com/setup_6.x | bash -
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
-apt-get install -y -nodejs
+apt-get install -y nodejs
 /usr/bin/npm install -g gulp
 /usr/bin/npm install -g bower
 /usr/bin/npm install -g yarn
