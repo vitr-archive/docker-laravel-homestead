@@ -35,7 +35,7 @@ curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sou
 curl -s https://packagecloud.io/gpg.key | apt-key add -
 echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
 
-curl --silent --location https://deb.nodesource.com/setup_6.x | bash -
+
 
 # Update Package Lists
 
@@ -237,6 +237,8 @@ groups vagrant
 
 # Install Node
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4F4EA0AAE5267A6C
+apt-get install apt-transport-https
+#curl --silent --location https://deb.nodesource.com/setup_6.x | bash -
 curl -sL https://deb.nodesource.com/setup_8.x | bash -
 apt-get install -y -nodejs
 /usr/bin/npm install -g gulp
@@ -307,7 +309,7 @@ apt-get install -y --allow-unauthenticated blackfire-agent blackfire-php
 
 # Install The Chrome Web Driver & Dusk Utilities
 
-apt-get -y install libxpm4 libxrender1 libgtk2.0-0 \
+apt-get -y --allow-unauthenticated install libxpm4 libxrender1 libgtk2.0-0 \
 libnss3 libgconf-2-4 chromium-browser \
 xvfb gtk2-engines-pixbuf xfonts-cyrillic \
 xfonts-100dpi xfonts-75dpi xfonts-base \
