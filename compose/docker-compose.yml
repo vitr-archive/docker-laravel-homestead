@@ -15,8 +15,8 @@ services:
 #        - ~/.gitconfig:/home/homestead/.gitconfig # Git configuration ( access alias && config )
 #        - ~/.ssh:/home/homestead/.ssh # Ssh keys for easy deployment inside the container
         - ./shared:/home/vagrant/apps # all apps
-#        - ./apps/volumes/nginx/sites-available:/etc/nginx/sites-available # nginx sites ( in case you recreate the container )
-#        - ./apps/volumes/nginx/sites-enabled:/etc/nginx/sites-enabled # nginx sites ( in case you recreate the container )
+        - ./shared/.bash_history:/root/.bash_history # command line history
+        - ./shared/nginx/sites-enabled:/etc/nginx/sites-enabled # nginx conf
     networks:
         - nginx-proxy
 # networks:
